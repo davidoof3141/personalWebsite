@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ruluko&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static "base.css" %}">
+    <link rel="stylesheet" href="{% static "/pdf_editor/pdf_editor.css" %}">
+    <script src="{% static "/resources/pdfjs/pdf.worker.js" %}">
+    </script>
+    <script src="{% static "/resources/jquery-3.6.0.min.js" %}"></script>
+    <script src="{% static "/resources/Sortable.min.js" %}"></script>
+    <script src="{% static "/pdf_editor/pdf_editor.js" %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.12.313/pdf.min.js"></script>
+</head>
+<body>
+<div class="inline_container">
+    <img id="back_arrow" src="{% static "/pdf_editor/resources/left.png" %}">
+    <div class="document_page_view" style="display: none;">
+        <span>Document</span>
+        <span>Page</span>
+    </div>
+</div>
+
+
+<div class="upload_container">
+    <div class="upload_window_container" >
+        <form id="form" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input id="upload_button" type="file" value="Browse" name="file" accept=".pdf" style="display: none"/>
+            <div class="upload_button_container">
+                <img class="upload_img" src="{% static "/pdf_editor/resources/upload.png" %}"> <br>
+                upload
+            </div>
+        </form>
+    </div>
+    <div class="info_window_container" style="display: none;">
+        <div class="pdf_page_view" id="pg">
+        </div>
+
+        <div class="info_window_menu">
+            <img class="info_window_add" src="{% static "/pdf_editor/resources/add.png" %}">
+                <div class="info_window_button">Submit</div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

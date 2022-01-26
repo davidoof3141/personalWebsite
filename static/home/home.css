@@ -1,0 +1,67 @@
+.menu {    
+    padding: 5vh;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
+
+.card {
+    padding: 30px;
+    height: 65vh;
+    margin: 7%;
+    border-radius: 20px;
+    background-color: white;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+}
+
+
+.div1 { grid-area: 1 / 1 / 2 / 2; }
+.div2 { grid-area: 1 / 2 / 2 / 3; 
+    border-right: 2px solid gray;
+    border-left: 2px solid gray;
+}
+.div3 { grid-area: 1 / 3 / 2 / 4; }
+
+.imprint{
+    height: 10vh;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90vw;
+    border-top: 2px solid gray;
+    padding: 5px;
+}
+
+.imprint_symbols_container{
+    float: right;
+}
+
+.imprint_symbols{
+    width: 40px;
+}
+
+.card_symbol{
+    height: 100px;
+    width: 100px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.card_content{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.card_content_text{
+    border-top: 1px solid black;
+    text-align: center;
+}
+
+.card_header{
+    font-size: 25px;
+}
+

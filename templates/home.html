@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ruluko&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="{% static "base.css" %}">
+        <link rel="stylesheet" href="{% static "/home/home.css" %}">
+    </head>
+    <body>
+        <div class="menu">
+            <div class="div1"> 
+                <div class="card" onclick="location.href='/pdf_editor'">
+                    <div class="card_content">
+                        <img class="card_symbol" src="{% static "home/resources/pdf.png" %}"><br>
+                        <span class="card_header">Online PDF editor</span>
+                    <div class="card_content_text">
+                        merge <br>
+                        edit <br>
+                        sign <br>
+                        compress <br>
+                        convert <br>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <div class="div2">
+                <div class="card">
+                    <div class="card_content">
+                    <img class="card_symbol" src="{% static "home/resources/brain.png" %}"><br>
+                    <span class="card_header">ML projects</span>
+                    <div class="card_content_text">
+                        age <br>
+                        gender <br>
+                        personality <br>
+                        stock <br>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div class="div3"> 
+                <div class="card">
+                    <div class="card_content">
+                    <img class="card_symbol" src="{% static "home/resources/budget.png" %}"><br>
+                    <span class="card_header">Finance</span>
+                    <div class="card_content_text">
+                        expenses <br>
+                        management <br>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+        <div class="imprint">
+            <div class="imprint_symbols_container">
+                <img class="imprint_symbols" src="{% static "home/resources/github.png" %}">
+                <img class="imprint_symbols" src="{% static "home/resources/linkedin.png" %}">
+            </div>
+        </div>
+    </body>
+</html>

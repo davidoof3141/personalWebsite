@@ -1,0 +1,11 @@
+body{
+    background-color: #E8E0D8;
+    font-family: "Ruluko", sans-serif;
+    font-size: 22px;
+}
+
+* { 
+    -moz-box-sizing: border-box; 
+    -webkit-box-sizing: border-box; 
+     box-sizing: border-box; 
+}

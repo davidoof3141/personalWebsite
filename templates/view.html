@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="{% static "/resources/jquery-3.6.0.min.js" %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.12.313/pdf.min.js"></script>
+    <script src="{% static "/resources/pdfjs/pdf.worker.js" %}"></script>
+    <link rel="stylesheet" href="{% static "/base.css" %}">
+    <link rel="stylesheet" href="{% static "/pdf_editor/view.css" %}">
+    <script src="{% static "/pdf_editor/view.js" %}"></script>
+</head>
+<body>
+{{ pdf|json_script:"pdf" }}
+<div class="container">
+    <div class="pdf_container">
+        <div class="pdf_toolbar">
+        </div>
+        <div class="pdf_content">
+        </div>
+    </div>
+    <div class="pdf_menu">
+        <a id="download_button" href="/media/{{ pdf }}" download><button >Download</button></a>
+        <button id="download_button">Sign</button>
+        <button id="download_button">Compress</button>
+        <button id="download_button">Convert</button>
+    </div>
+</div>
+</body>
+</html>

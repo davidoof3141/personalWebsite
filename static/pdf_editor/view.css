@@ -1,0 +1,59 @@
+body, html{
+    margin: 0;
+    height: 100%;
+}
+
+
+.pdf_container{
+    width: calc(100% - 350px);
+    background-color: rgb(82, 86, 89);
+    height: 100%;
+
+}
+
+.pdf_toolbar{
+    background-color: rgb(50, 54, 57);
+    height: 50px;
+    width: 100%;
+}
+
+.pdf_content{
+    overflow: auto;
+    height: calc(100% - 50px);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px 5px;
+}
+
+canvas{
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.pdf_menu{
+    background-color: rgb(209, 209, 209);
+    width: 350px;
+    height: 100%;
+    display: flex; 
+    justify-content: center;
+    padding: 30px;
+    flex-direction: column;
+}
+
+.container{
+    height: 100%;
+    width: 100%;
+    display: flex;
+
+}
+
+#download_button{
+    height: 40px;
+    width: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+}

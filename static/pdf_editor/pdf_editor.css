@@ -1,0 +1,135 @@
+body {
+    padding: 2vh;
+}
+
+#back_arrow {
+    height: 50px;
+}
+
+.upload_container {
+    height: 80vh;
+    width: 70vw;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.upload_window_container {
+    width: 100%;
+    height: 100%;
+    border: 4px dashed black;
+    border-radius: 10px;
+    background-color: rgba(128, 128, 128, 0.425);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.upload_button_container {
+    height: 20%;
+    width: 80px;
+    border-radius: 20px;
+    border: 1px solid black;
+    justify-content: center;
+    background-color: rgb(90, 252, 230);
+    text-align: center;
+}
+
+.upload_img {
+    padding: 15%;
+    width: 100%;
+    height: 70%;
+    border-bottom: 1px solid black;
+}
+
+.document_page_view {
+    position: absolute;
+    left: 50%;
+    top: 7%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 5px;
+    border-radius: 10px;
+    border: 1px solid black;
+}
+
+.info_window_container {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid black;
+    border-radius: 10px;
+    position: relative;
+}
+
+.info_window_menu {
+    position: absolute;
+    width: 100%;
+    height: 15%;
+    bottom: 0;
+    background-color: rgba(87, 87, 87, 0.336);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-top: 1px solid black;
+}
+
+.info_window_button {
+    float: right;
+    margin: 2% 3% 2% 2%;
+    padding: 5px;
+    border-radius: 10px;
+    background-color: rgb(90, 252, 230);
+}
+
+.info_window_add {
+    height: 60%;
+    margin: 2%;
+}
+
+.upload_window_container:hover {
+    cursor: pointer;
+}
+
+.pdf_page_view {
+    display: flex;
+    width: 100%;
+    height: 85%;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: rgba(133, 133, 133, 0.22);
+    overflow: auto;
+    padding: 1%;
+    gap: 2px 2px;
+    justify-content: center;
+
+
+}
+
+
+
+
+
+canvas{
+    position: relative;
+    height: 90%;
+    margin: auto;
+    display: block;
+}
+
+
+.page {
+    display: flex;
+    background-color: rgba(148, 148, 148, 0.32);
+    height: 175px;
+    width: 175px;
+}
+
+.pdf_page_view::after{
+  content: "";
+  flex: auto;
+}
+
+.info_window_add, .info_window_button:hover{
+    cursor: pointer;
+}
