@@ -7,7 +7,7 @@ from django.shortcuts import redirect
 import uuid
 
 media_dir = Path(__file__).resolve().parent.parent.parent / 'media'
-illegal_chars = ['(', '/', ')', '%', '&', '"', '^', ' ']
+illegal_chars = ['(', '/', ')', '%', '&', '"', '^', ' ', '_']
 fss = FileSystemStorage()
 hashMap = {}
 
@@ -31,19 +31,28 @@ def pdf_editor_home(request):
 
 def submit(request):
     newPdf = request.POST.getlist("data[]")
-    print(fss.base_url)
+    mode = request.POST.get("mode")
+    print("HALLO")
     documents = {}
     merged_pdf = Pdf.new()
-    for doc in newPdf:
-        doc_info = doc.rsplit("_", 1)
-        doc_name = f"{doc_info[0]}.pdf"
-        doc_page = int(doc_info[1]) - 1
-        if not fss.exists(doc_name):
-            return JsonResponse({"url": "File does not exist anymore"})
-        if doc_name not in documents.keys():
-            pdf = Pdf.open(fss.open(doc_name))
-            documents[doc_name] = pdf
-        merged_pdf.pages.append(documents.get(doc_name).pages[doc_page])
+    if mode == "files":
+        for doc in newPdf:
+            doc_info = doc.rsplit("_", 1)
+            doc_name = f"{doc_info[0]}.pdf"
+            if not fss.exists(doc_name):
+                return JsonResponse({"url": "File does not exist anymore"})
+            merged_pdf.pages.extend(Pdf.open(fss.open(doc_name)).pages)
+    else:
+        for doc in newPdf:
+            doc_info = doc.rsplit("_", 1)
+            doc_name = f"{doc_info[0]}.pdf"
+            doc_page = int(doc_info[1]) - 1
+            if not fss.exists(doc_name):
+                return JsonResponse({"url": "File does not exist anymore"})
+            if doc_name not in documents.keys():
+                pdf = Pdf.open(fss.open(doc_name))
+                documents[doc_name] = pdf
+            merged_pdf.pages.append(documents.get(doc_name).pages[doc_page])
     merged_pdf_name = fss.get_available_name('merged.pdf')
     merged_pdf.save(f"{fss.location}/{merged_pdf_name}")
     hash_code = str(uuid.uuid4())

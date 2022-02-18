@@ -2,6 +2,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <script>
+        let url = "{% static "/pdf_editor/resources/zoom.svg" %}";
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Ruluko&display=swap" rel="stylesheet">
@@ -18,20 +21,20 @@
 <div class="inline_container">
     <img id="back_arrow" src="{% static "/pdf_editor/resources/left.png" %}">
     <div class="document_page_view" style="display: none;">
-        <span>Document</span>
-        <span>Page</span>
+        <div id="document_page_view_files">Files</div>
+        <div id="document_page_view_pages">Pages</div>
     </div>
 </div>
 
 
 <div class="upload_container">
-    <div class="upload_window_container" >
+    <div class="upload_window_container">
         <form id="form" method="post" enctype="multipart/form-data">
             {% csrf_token %}
             <input id="upload_button" type="file" value="Browse" name="file" accept=".pdf" style="display: none"/>
             <div class="upload_button_container">
-                <img class="upload_img" src="{% static "/pdf_editor/resources/upload.png" %}"> <br>
-                upload
+                UPLOAD
+                <img class="upload_img" src="{% static "/pdf_editor/resources/upload.png" %}">
             </div>
         </form>
     </div>
@@ -40,10 +43,17 @@
         </div>
 
         <div class="info_window_menu">
-            <img class="info_window_add" src="{% static "/pdf_editor/resources/add.png" %}">
-                <div class="info_window_button">Submit</div>
+            <div class="info_window_add">
+            <img class="info_window_add_icon" src="{% static "/pdf_editor/resources/add.png" %}">
+                <div class="info_window_add_text">ADD</div>
+            </div>
+                <div class="info_window_submit">SUBMIT</div>
         </div>
     </div>
+</div>
+
+<div class="canvas_fullscreen_container">
+
 </div>
 </body>
 </html>
