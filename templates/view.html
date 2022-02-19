@@ -5,25 +5,44 @@
     <script src="{% static "/resources/jquery-3.6.0.min.js" %}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.12.313/pdf.min.js"></script>
     <script src="{% static "/resources/pdfjs/pdf.worker.js" %}"></script>
+    <link rel="stylesheet" href="{% static "/resources/jquery-ui.css" %}">
+    <script src="{% static "/resources/jquery-ui.js" %}"></script>
     <link rel="stylesheet" href="{% static "/base.css" %}">
     <link rel="stylesheet" href="{% static "/pdf_editor/view.css" %}">
+
     <script src="{% static "/pdf_editor/view.js" %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/451/fabric.js"></script>
 </head>
 <body>
 {{ pdf|json_script:"pdf" }}
 <div class="container">
+
+
     <div class="pdf_container">
         <div class="pdf_toolbar">
         </div>
         <div class="pdf_content">
+            <div class="canvas_container">
+                <div class="handles">
+                    <div class="drag_handle"></div>
+                    <div class="delete_handle"></div>
+                    <div class="submit_handle"></div>
+                </div>
+                <canvas id="signature">
+
+                </canvas>
+            </div>
         </div>
     </div>
     <div class="pdf_menu">
-        <a id="download_button" href="/media/{{ pdf }}" download><button >Download</button></a>
+        <a id="download_button" href="/media/{{ pdf }}" download>
+            <button>Download</button>
+        </a>
         <button id="download_button">Sign</button>
         <button id="download_button">Compress</button>
         <button id="download_button">Convert</button>
     </div>
 </div>
+
 </body>
 </html>

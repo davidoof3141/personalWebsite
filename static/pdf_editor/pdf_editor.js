@@ -204,6 +204,7 @@ $(function () {
             context.rotate(90 * Math.PI /180)
             context.drawImage(oldCanvas, 0, 0);
             $('.canvas_fullscreen_container').append(newCanvas)
+            console.log("test")
             $('.canvas_fullscreen_container').css('display', 'flex')
         })
 
@@ -215,8 +216,7 @@ $(function () {
             let context = newCanvas.getContext('2d');
             newCanvas.width = oldCanvas.width;
             newCanvas.height = oldCanvas.height;
-            context.rotate(90 * Math.PI /180)
-            context.drawImage(oldCanvas, oldCanvas.width/2, oldCanvas.height/2);
+            context.drawImage(oldCanvas, 0, 0);
 
             $('.canvas_fullscreen_container').append(newCanvas)
             $('.canvas_fullscreen_container').css('display', 'flex')

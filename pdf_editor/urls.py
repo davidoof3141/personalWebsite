@@ -5,5 +5,6 @@ urlpatterns = [
     path('', views.home, name='home'),
     path('pdf_editor/', views.pdf_editor_home, name='pdf_editor_home'),
     path('pdf_editor/submit', views.submit, name='submit'),
-    path('pdf_editor/<str:hash_code>', views.view, name='view')
+    path('pdf_editor/<str:hash_code>', views.view, name='view'),
+    path('pdf_view/submit', views.pdf_view_submit, name='submit_view')
 ]
