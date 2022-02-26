@@ -28,7 +28,7 @@ body {
     position: relative;
     font-size: 17px;
     height: 30px;
-    width: 110px;
+    width: 115px;
     border-radius: 5px;
     border: 2px solid black;
     background-color: #31F4C5;
@@ -54,7 +54,7 @@ body {
     cursor: default;
     display: inline-block;
     color: white;
-    width: 120px;
+    width: 135px;
     height: 35px;
     line-height: 31px;
     position: absolute;
@@ -114,6 +114,8 @@ body {
     background-color: rgb(90, 252, 230);
 }
 
+
+
 .info_window_add {
     margin-left: 15px;
     height: 40px;
@@ -147,8 +149,7 @@ body {
     background-color: #686868;
     overflow: auto;
     padding: 1%;
-    gap: 2px 2px;
-    justify-content: center;
+
 }
 
 .canvas_wrapper {
@@ -163,9 +164,13 @@ body {
     background-color: rgba(190, 190, 190, 0.26);
 }
 
+.canvas_wrapper:hover .canvas_icons {
+    display: flex;
+}
+
 .canvas_icons {
     position: absolute;
-    display: flex;
+    display: none;
     right: 0;
     height: 25px;
     width: 75px;
@@ -210,12 +215,7 @@ canvas{
     width: 175px;
 }
 
-.pdf_page_view::after {
-    content: "";
-    flex: auto;
-}
-
-.info_window_add, .info_window_button:hover {
+.info_window_add, .info_window_button:hover, .info_window_submit:hover {
     cursor: pointer;
 }
 

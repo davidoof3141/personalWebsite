@@ -3,7 +3,6 @@ from pathlib import Path
 from pikepdf import Pdf
 from django.core.files.storage import FileSystemStorage
 from django.http import JsonResponse
-from django.shortcuts import redirect
 import fitz
 import uuid
 import base64
@@ -96,4 +95,5 @@ def pdf_view_submit(request):
         img = fss.open(file, "wb")
         img.write(doc_bytes)
         img.close()
+        return JsonResponse({"status": "successful"})
     return render(request, 'view.html')

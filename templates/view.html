@@ -9,24 +9,19 @@
     <script src="{% static "/resources/jquery-ui.js" %}"></script>
     <link rel="stylesheet" href="{% static "/base.css" %}">
     <link rel="stylesheet" href="{% static "/pdf_editor/view.css" %}">
-
-    <script src="{% static "/pdf_editor/view.js" %}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/451/fabric.js"></script>
+    <script type="module" src="{% static "/utils/utils.js" %}"></script>
+    <script type="module" src="{% static "/pdf_editor/view.js" %}"></script>
 </head>
 <body>
 {{ pdf|json_script:"pdf" }}
 <div class="container">
-
-
     <div class="pdf_container">
         <div class="pdf_toolbar">
         </div>
         <div class="pdf_content">
             <div class="canvas_container">
-                <div class="handles">
-                    <div class="drag_handle"></div>
-                    <div class="delete_handle"></div>
-                    <div class="submit_handle"></div>
+                <div class="drag_handle">
+                    <img style="height:15px; width:15px" src="{% static "/pdf_editor/resources/drag.svg" %}">
                 </div>
                 <canvas id="signature">
 
@@ -34,13 +29,28 @@
             </div>
         </div>
     </div>
-    <div class="pdf_menu">
+    <div class="pdf_sidebar">
+        <img class="sidebar_icon print_icon" src="{% static "/pdf_editor/resources/print.svg" %}">
+        <img class="sidebar_icon signature_icon" src="{% static "/pdf_editor/resources/signature.svg" %}">
         <a id="download_button" href="/media/{{ pdf }}" download>
-            <button>Download</button>
+            <img class="sidebar_icon download_icon" src="{% static "/pdf_editor/resources/download.svg" %}"">
         </a>
-        <button id="download_button">Sign</button>
-        <button id="download_button">Compress</button>
-        <button id="download_button">Convert</button>
+    </div>
+
+    <div class="signature_options">
+        <div class="signature_options_container">
+            <label for="font_size">Size</label> <input class="font_size_input" type="number" value="2" name="font_size">
+        </div>
+        <div class="signature_options_container">
+            <label for="font_color">Color</label> <input class="font_color_input" type="color" name="font_color">
+        </div>
+        <div class="signature_options_container signature_options_buttons">
+            <div class="signature_button delete_button">&#10005;</div>
+            <div class="signature_button clear_button"><img style="width: 15px; height: 15px;
+                filter: invert(52%) sepia(10%) saturate(16%) hue-rotate(348deg) brightness(94%) contrast(86%);" src="{% static "/pdf_editor/resources/clear.svg" %}"></div>
+            <div class="signature_button submit_button">&#10003;</div>
+        </div>
+    </div>
     </div>
 </div>
 

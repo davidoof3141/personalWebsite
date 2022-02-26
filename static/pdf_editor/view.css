@@ -1,23 +1,44 @@
-body, html{
+body, html {
     margin: 0;
     height: 100%;
 }
 
+/* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  * {
+    scrollbar-width: auto;
+    scrollbar-color: #454545 #ffffff;
+  }
 
-.pdf_container{
-    width: calc(100% - 350px);
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: #ffffff;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: #454545;
+    border-radius: 10px;
+    border: 3px none #ffffff;
+  }
+
+.pdf_container {
+    width: calc(100% - 70px);
     background-color: rgb(82, 86, 89);
     height: 100%;
-
 }
 
-.pdf_toolbar{
+.pdf_toolbar {
     background-color: rgb(50, 54, 57);
     height: 50px;
     width: 100%;
+    border-bottom: 2px solid rgb(32, 32, 32);
 }
 
-.pdf_content{
+.pdf_content {
     overflow: auto;
     height: calc(100% - 50px);
     width: 100%;
@@ -28,84 +49,145 @@ body, html{
     gap: 5px 5px;
 }
 
-.canvas_page{
+.canvas_page {
     max-width: 70%;
     margin-left: auto;
     margin-right: auto;
 }
 
-.pdf_menu{
-    background-color: rgb(28, 31, 35);
-    width: 350px;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    padding: 30px;
-    flex-direction: column;
-}
-
-.container{
+.container {
     height: 100%;
     width: 100%;
     display: flex;
-
 }
 
-#download_button{
-    height: 40px;
-    width: 150px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 10px;
+.sidebar_icon {
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+    padding: 7px;
+    border: 2px solid #000000;
+    border-radius: 5px;
 }
 
-
-
-#signature{
-  width: 100%;
-  height: 100%;
-  position: absolute;
+.sidebar_icon:hover {
+    background-color: rgb(255, 255, 255);
 }
 
-.canvas_container{
-  border: 3px solid blue;
-  height: 100px;
-  width: 100px;
-  position: absolute
+.pdf_sidebar {
+    width: 70px;
+    height: 100%;
+    background-color: rgb(28, 31, 35);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
 }
 
-.handles{
-  background-color: green;
-  height: 75px;
-  width: 25px;
-  position: absolute;
-  right: -27px;
-  top: -3px;
+.signature_icon {
+    filter: invert(19%) sepia(79%) saturate(7356%) hue-rotate(300deg) brightness(83%) contrast(111%);
 }
 
-.drag_handle{
-  height: 25px;
-  width: 25px;
-  background: gray;
+.download_icon {
+    filter: invert(65%) sepia(19%) saturate(6206%) hue-rotate(123deg) brightness(104%) contrast(96%);
 }
 
-.delete_handle{
-  height:25px;
-  width: 25px;
-  background: red;
+.print_icon {
+    filter: invert(31%) sepia(95%) saturate(4362%) hue-rotate(3deg) brightness(103%) contrast(98%);
 }
 
-.submit_handle{
-  height: 25px;
-  width: 25px;
-  background: green;
+#signature {
+    width: 100%;
+    height: 100%;
+    position: absolute;
 }
 
-.h{
-    background-color: aqua;
+.canvas_container {
+    border: 3px solid rgb(0, 0, 54);
     height: 100px;
     width: 100px;
     position: absolute;
+    top: 50%;
+    left: 50%;
+    display: none;
+}
 
+.drag_handle {
+    height: 20px;
+    width: 20px;
+    background: gray;
+    position: absolute;
+    left: -3px;
+    top: -22px;
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.drag_handle {
+    cursor: move;
+}
+
+.signature_options_container {
+    margin: 5px 0px;
+}
+
+.signature_options {
+    background-color: rgb(28, 31, 35);
+    position: absolute;
+    right: 90px;
+    top: 45%;
+    width: 100px;
+    height: 100px;
+    border-radius: 5px;
+    border: 2px solid rgb(205, 25, 221);
+    padding: 10px;
+    color: #ffffff;
+    font-size: 15px;
+    display: none;
+}
+
+.font_size_input {
+    width: 40px;
+}
+
+.signature_options_buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.signature_button {
+    height: 20px;
+    width: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+}
+
+.signature_button:hover {
+    border: 1px solid white;
+    color: white;
+    cursor: pointer;
+}
+
+.font_color_input {
+    width: 20px;
+    height: 20px;
+}
+
+.submit_button {
+    color: greenyellow;
+    border: 1px solid greenyellow;
+}
+
+.delete_button {
+    color: red;
+    border: 1px solid red;
+}
+
+.clear_button {
+    border: 1px solid #808080;
 }
 
