@@ -1,0 +1,176 @@
+body{
+    background-color: rgb(18, 0, 44);
+}
+
+.results{
+    display: none;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+    height: 430px;
+}
+
+.camera{
+    margin: 30px auto 10px auto;
+    width: 400px;
+    height: 350px;
+}
+
+.puff_out_animation{
+    -webkit-animation: puff-out-center 1s cubic-bezier(0.165, 0.840, 0.440, 1.000) both;
+    animation: puff-out-center 1s cubic-bezier(0.165, 0.840, 0.440, 1.000) both;
+}
+
+ @-webkit-keyframes puff-out-center {
+    0% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+      -webkit-filter: blur(0px);
+              filter: blur(0px);
+      opacity: 1;
+    }
+    100% {
+      -webkit-transform: scale(2);
+              transform: scale(2);
+      -webkit-filter: blur(4px);
+              filter: blur(4px);
+      opacity: 0;
+      display: none;
+    }
+  }
+  @keyframes puff-out-center {
+    0% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+      -webkit-filter: blur(0px);
+              filter: blur(0px);
+      opacity: 1;
+    }
+    100% {
+      -webkit-transform: scale(2);
+              transform: scale(2);
+      -webkit-filter: blur(4px);
+              filter: blur(4px);
+      opacity: 0;
+    }
+  }
+  
+
+#video{
+    height: 300px;
+    width: 400px;
+}
+
+#take_selfie_button{
+    margin: 10px auto 5px auto;
+    width: 120px;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    background-color: rgb(0, 255, 170);
+    border-radius: 20px;
+    border: 5px black solid;
+}
+
+.result_img{
+    display: none;
+    align-self: center;
+    -webkit-animation: fade-in-top 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+	        animation: fade-in-top 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+
+.result_information{
+    width: 420px;
+    padding: 10px;
+}
+
+.gender_icons{
+    height: 20px;
+    width: 100%;
+}
+
+.male_icon{
+    float: left;
+    margin-left: 10px;
+    width: 15px;
+}
+
+.female_icon{
+    float: right;
+    margin-right: 10px;
+    width: 15px;
+}
+
+.gender_bar{
+    -webkit-animation: fade-in-top 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+    animation: fade-in-top 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+    width: 400px;
+    height: 50px;
+    display: none;
+}
+
+.bar{
+    height: 20px;
+    border: 3px solid rgb(38, 38, 38);
+    border-radius: 25px;
+}
+
+#bar_male{
+    position: absolute;
+    left: 0;
+    width: 50%;
+    height: 20px;
+    background-color: cornflowerblue;
+    border-bottom-left-radius: 25px;
+    border-top-left-radius: 25px;
+}
+
+#bar_female{
+    position: absolute;
+    right: 0;
+    width: 50%;
+    height: 20px;
+    background-color: rgb(255, 101, 127);
+    border-bottom-right-radius: 25px;
+    border-top-right-radius: 25px;
+}
+
+.result_age{
+    color: white;
+    font-size: 25px;
+    margin: 10px 0 0 5px;
+    display: none;
+    -webkit-animation: fade-in-top 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+	        animation: fade-in-top 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+
+#bar_chart{
+    margin: 10px;
+    width: 300px !important;
+    height: 300px !important;
+}
+
+@-webkit-keyframes fade-in-top {
+  0% {
+    -webkit-transform: translateY(-50px);
+            transform: translateY(-50px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes fade-in-top {
+  0% {
+    -webkit-transform: translateY(-50px);
+            transform: translateY(-50px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: 1;
+  }
+}

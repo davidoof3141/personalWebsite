@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="{% static "/face_recognizer/face_recognizer.css" %}">
+        <script src="{% static "/resources/jquery-3.6.0.min.js" %}" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <script src="{% static "/resources/Chart.min.js" %}"></script>
+        <script type="module" src="{% static "/utils/utils.js" %}"></script>
+        <script type="module" src="{% static "/face_recognizer/face_recognizer.js" %}"></script>
+    </head>
+    <body>
+        <div class="camera">
+            <video id="video" width="320" height="240" autoplay></video>
+
+        <div id="take_selfie_button">
+            Take Selfie
+        </div>
+        </div>
+        <div class="results">
+            <canvas id="dummy" width="320" height="240" style="display: none"></canvas>
+            <canvas class="result_img" id="output" width="320" height="240"></canvas>
+            <div class="result_information" >
+                <div class="gender_bar">
+                    <div class="gender_icons">
+                        <img class="male_icon" src="{% static "resources/images/male.png" %}">
+                        <img class="female_icon" src="{% static "resources/images/female.png" %}">
+                    </div>
+                    <div class="bar" style="position: relative;">
+                        <div id="bar_male"></div>
+                        <div id="bar_female"></div>
+                    </div>
+                </div>
+                <p class="result_age">AGE: <span id="age">0</span></p>
+                <canvas id="bar_chart" width="400" height="400"></canvas>
+            </div>
+            
+        </div>
+    </body>
+    
+</html>
