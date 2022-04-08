@@ -1,4 +1,4 @@
 *.xml -linguist-vendored
-
+*.js -linguist-vendored
 jquery-3.6.0.min.js -linguist-vendored
 static/resources/* -linguist-vendored
