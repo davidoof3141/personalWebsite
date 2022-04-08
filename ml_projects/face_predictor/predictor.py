@@ -18,8 +18,14 @@ def test(img):
     img_gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     faces = face_cascade.detectMultiScale(img_gray, 1.1, 6)
     for (x, y, w, h) in faces:
-        cv2.rectangle(img, (x, y), (x + w, y + h), (255, 0, 0), 2)
-        face = img_gray[y:y + h, x:x + w]
+        wx = int((x+w)*1.05)
+        hy = int((y+h) * 1.1)
+        x = int(x*0.95)
+        y = int(y*0.85)
+        cv2.rectangle(img, (x, y), (wx, hy), (255, 0, 0), 2)
+        #cv2.rectangle(img, (x, y), (x + w, y + h), (255, 0, 0), 2)
+        face = img_gray[y:hy, x:wx]
+        #face = img_gray[y:y + h, x:x + w]
         break
     face = cv2.resize(face, dsize=(48, 48))
     data = tf.convert_to_tensor([face])
