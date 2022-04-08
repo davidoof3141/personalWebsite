@@ -2,3 +2,5 @@
 *.pb -linguist-detectable
 *.ts -linguist-detectable
 *.xml -linguist-detectable
+
+static/resources/* -linguist-vendored
