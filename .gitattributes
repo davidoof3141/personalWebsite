@@ -1,4 +1,4 @@
-*.svg linguist-detectable
-*.pb linguist-detectable
-*.ts linguist-detectable
-*.xml linguist-detectable
+*.svg -linguist-detectable
+*.pb -linguist-detectable
+*.ts -linguist-detectable
+*.xml -linguist-detectable
