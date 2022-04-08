@@ -1,6 +1,3 @@
-*.svg -linguist-detectable
-*.pb -linguist-detectable
-*.ts -linguist-detectable
-*.xml -linguist-detectable
+*.xml -linguist-vendored
 
-static/resources/* linguist-vendored
+static/resources/* -linguist-vendored
