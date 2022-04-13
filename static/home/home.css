@@ -1,67 +1,144 @@
-.menu {    
-    padding: 5vh;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 1fr;
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
+body{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-.card {
-    padding: 30px;
-    height: 65vh;
-    margin: 7%;
+*{
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+
+
+.header{
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#logo{
+    height: 50px;
+    width: 50px;
+    padding: 2px;
+    background-color: rgb(216, 216, 216);
+    border-radius: 50%;
+}
+
+.cards{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    flex-wrap: wrap;
+}
+
+.card{
+    background-color: rgb(255, 255, 255);
+    height: 350px;
+    width: 250px;
+    margin: 5px;
     border-radius: 20px;
-    background-color: white;
-    border: 1px solid black;
+    position: relative;
+}
+
+.card:hover {
+    transition: all 0.2s ease-out;
+    box-shadow: 0px 4px 8px rgba(38, 38, 38, 0.2);
+    border: 1px solid #cccccc;
+  }
+
+
+.card_img{
+    width: 250px;
+    border-radius: 20px;
+    
+}
+
+.gray{
+    filter: brightness(90%);
+}
+
+.b{
+    background-color: blue;
+}
+
+.g{
+    background-color: green;
+}
+
+.card_header{
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+.card_description{
+    margin-left: 10px;
+    margin-right: 10px;
+    color: grey;
+    -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+.go-arrow{
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    font-size: 50px;
+    height: 30px;
+    width: 60px;
+    line-height: 20px;
+    text-align: center;
+    border-radius: 20px;
+    transition: 0.25s;
+}
+
+.go-arrow:hover,
+.go-arrow:focus {
+    cursor: pointer;
+    color: white;
+    
+}
+
+.arrow_pdf:hover, .arrow_pdf:focus{
+    box-shadow: inset 2em 0 0 0 rgb(218, 218, 218);
+}
+
+.arrow_face:hover, .arrow_face:focus{
+    box-shadow: inset 2em 0 0 0 #A79CD1;
+}
+
+.arrow_trading:hover, .arrow_trading:focus{
+    box-shadow: inset 2em 0 0 0 #79C3C3;
+}
+
+
+
+.footer_container{
+    margin: 10px auto 0 auto;
     display: flex;
     justify-content: center;
 }
 
-
-.div1 { grid-area: 1 / 1 / 2 / 2; }
-.div2 { grid-area: 1 / 2 / 2 / 3; 
-    border-right: 2px solid gray;
-    border-left: 2px solid gray;
-}
-.div3 { grid-area: 1 / 3 / 2 / 4; }
-
-.imprint{
-    height: 10vh;
-    margin-left: auto;
-    margin-right: auto;
-    width: 90vw;
-    border-top: 2px solid gray;
-    padding: 5px;
+.footer{
+    border-top: 2px solid rgb(194, 194, 194);
+    width: 50%;
+    display: flex;
+    justify-content: center;
 }
 
-.imprint_symbols_container{
-    float: right;
-}
-
-.imprint_symbols{
+.footer_logo{
     width: 40px;
+    margin: 5px 2px 2px 0px;
+    transition: 0.25s;
+    border-radius: 5px;
+    filter: invert(64%) sepia(97%) saturate(0%) hue-rotate(261deg) brightness(101%) contrast(91%);
 }
 
-.card_symbol{
-    height: 100px;
-    width: 100px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+.footer_logo:hover{
+    filter: none;
+    cursor: pointer;
 }
-
-.card_content{
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.card_content_text{
-    border-top: 1px solid black;
-    text-align: center;
-}
-
-.card_header{
-    font-size: 25px;
-}
-

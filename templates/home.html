@@ -2,60 +2,44 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Ruluko&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="{% static "base.css" %}">
-        <link rel="stylesheet" href="{% static "/home/home.css" %}">
+        <link rel="stylesheet" href="{%  static "home/home.css" %}">
+        <script src="{% static "resources/jquery-3.6.0.min.js" %}"></script>
+        <script src="{% static "home/home.js" %}"></script>
     </head>
     <body>
-        <div class="menu">
-            <div class="div1"> 
-                <div class="card" onclick="location.href='/pdf_editor'">
-                    <div class="card_content">
-                        <img class="card_symbol" src="{% static "home/resources/pdf.png" %}"><br>
-                        <span class="card_header">Online PDF editor</span>
-                    <div class="card_content_text">
-                        merge <br>
-                        edit <br>
-                        sign <br>
-                        compress <br>
-                        convert <br>
-                    </div>
-                    </div>
-                </div>
+        <div class="header">
+            <img id="logo" src="{% static "home/resources/logo.png" %}">
+        </div>
+        <div class="cards">
+            <div class="card">
+                <video class="card_img gray" id="pdf_ani" loop>
+                    <source src="{% static "home/resources/pdf_animation.mp4" %}" type="video/mp4" muted="muted">
+                </video>
+                <span class="card_header">PDF-Editor</span> <br>
+                <span class="card_description">This is a Online PDF-Editor let you merge, delete, sign and extract images and text from pdf files</span>
+                <div class="go-arrow arrow_pdf" onclick="location.href='/pdf_editor';">&#8594;</div>
             </div>
-            <div class="div2">
-                <div class="card" onclick="location.href='/MLprojects'">
-                    <div class="card_content">
-                    <img class="card_symbol" src="{% static "home/resources/brain.png" %}"><br>
-                    <span class="card_header">ML projects</span>
-                    <div class="card_content_text">
-                        age <br>
-                        gender <br>
-                        personality <br>
-                        stock <br>
-                    </div>
-                </div>
-                </div>
+            <div class="card">
+                <video class="card_img" id="face_ani" loop>
+                    <source src="{% static "home/resources/face_animation.mp4" %}" type="video/mp4" muted="muted">
+                </video>
+                <span class="card_header">Face recognizer</span> <br>
+                <span class="card_description">A convolutional Neural Network classifies your age, gender and ethnicity based on a selfie</span>
+                <div class="go-arrow arrow_face" onclick="location.href='MLprojects/';">&#8594;</div>
             </div>
-            <div class="div3"> 
-                <div class="card">
-                    <div class="card_content">
-                    <img class="card_symbol" src="{% static "home/resources/budget.png" %}"><br>
-                    <span class="card_header">Finance</span>
-                    <div class="card_content_text">
-                        expenses <br>
-                        management <br>
-                    </div>
-                </div>
-                </div>
+            <div class="card">
+                <video class="card_img" id="trading_ani" loop>
+                    <source src="{% static "home/resources/trading_animation.mp4" %}#t=5" type="video/mp4" muted="muted">
+                </video>
+                <span class="card_header">Trading bot</span> <br>
+                <span class="card_description">This bot implements basic trading strategies as well as Machine Learning algorithms  </span>
+                <div class="go-arrow arrow_trading">&#8594;</div>
             </div>
         </div>
-        <div class="imprint">
-            <div class="imprint_symbols_container">
-                <img class="imprint_symbols" src="{% static "home/resources/github.png" %}">
-                <img class="imprint_symbols" src="{% static "home/resources/linkedin.png" %}">
+        <div class="footer_container">
+            <div class="footer">
+                <img class="footer_logo" src="{% static "home/resources/linkedin.svg" %}">
+                <img class="footer_logo" src="{% static "home/resources/github.svg" %}">
             </div>
         </div>
     </body>
