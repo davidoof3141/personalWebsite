@@ -1,26 +1,15 @@
-body{
+body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-*{
-  -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-     -khtml-user-select: none; /* Konqueror HTML */
-       -moz-user-select: none; /* Old versions of Firefox */
-        -ms-user-select: none; /* Internet Explorer/Edge */
-            user-select: none; /* Non-prefixed version, currently
-                                  supported by Chrome, Edge, Opera and Firefox */
-}
-
-
-.header{
+.header {
     height: 70px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-#logo{
+#logo {
     height: 50px;
     width: 50px;
     padding: 2px;
@@ -28,14 +17,14 @@ body{
     border-radius: 50%;
 }
 
-.cards{
+.cards {
     display: flex;
     justify-content: center;
     margin-top: 10px;
     flex-wrap: wrap;
 }
 
-.card{
+.card {
     background-color: rgb(255, 255, 255);
     height: 350px;
     width: 250px;
@@ -48,42 +37,42 @@ body{
     transition: all 0.2s ease-out;
     box-shadow: 0px 4px 8px rgba(38, 38, 38, 0.2);
     border: 1px solid #cccccc;
-  }
-
-
-.card_img{
-    width: 250px;
-    border-radius: 20px;
-    
 }
 
-.gray{
+
+.card_img {
+    width: 250px;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+}
+
+.gray {
     filter: brightness(90%);
 }
 
-.b{
+.b {
     background-color: blue;
 }
 
-.g{
+.g {
     background-color: green;
 }
 
-.card_header{
+.card_header {
     font-size: 20px;
     font-weight: bold;
     margin-left: 10px;
 }
 
-.card_description{
+.card_description {
     margin-left: 10px;
     margin-right: 10px;
     color: grey;
     -webkit-box-decoration-break: clone;
-  box-decoration-break: clone;
+    box-decoration-break: clone;
 }
 
-.go-arrow{
+.go-arrow {
     position: absolute;
     right: 10px;
     bottom: 10px;
@@ -100,37 +89,36 @@ body{
 .go-arrow:focus {
     cursor: pointer;
     color: white;
-    
+
 }
 
-.arrow_pdf:hover, .arrow_pdf:focus{
+.arrow_pdf:hover, .arrow_pdf:focus {
     box-shadow: inset 2em 0 0 0 rgb(218, 218, 218);
 }
 
-.arrow_face:hover, .arrow_face:focus{
+.arrow_face:hover, .arrow_face:focus {
     box-shadow: inset 2em 0 0 0 #A79CD1;
 }
 
-.arrow_trading:hover, .arrow_trading:focus{
+.arrow_trading:hover, .arrow_trading:focus {
     box-shadow: inset 2em 0 0 0 #79C3C3;
 }
 
 
-
-.footer_container{
+.footer_container {
     margin: 10px auto 0 auto;
     display: flex;
     justify-content: center;
 }
 
-.footer{
+.footer {
     border-top: 2px solid rgb(194, 194, 194);
     width: 50%;
     display: flex;
     justify-content: center;
 }
 
-.footer_logo{
+.footer_logo {
     width: 40px;
     margin: 5px 2px 2px 0px;
     transition: 0.25s;
@@ -138,7 +126,7 @@ body{
     filter: invert(64%) sepia(97%) saturate(0%) hue-rotate(261deg) brightness(101%) contrast(91%);
 }
 
-.footer_logo:hover{
+.footer_logo:hover {
     filter: none;
     cursor: pointer;
 }

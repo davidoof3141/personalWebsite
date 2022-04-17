@@ -14,11 +14,11 @@ export function getCookie(name) {
     return cookieValue;
 }
 
-export async function renderPage(pdf, pageNum, canvas) {
+export async function renderPage(pdf, pageNum, canvas, scale) {
     await pdf.getPage(pageNum).then(function (page) {
 
         let ctx = canvas.getContext('2d');
-        const viewport = page.getViewport({scale: 5});
+        const viewport = page.getViewport({scale: scale});
         canvas.height = viewport.height;
         canvas.width = viewport.width;
 
@@ -30,6 +30,6 @@ export async function renderPage(pdf, pageNum, canvas) {
         let renderTask = page.render(renderContext);
         renderTask.promise.then(function (e) {
         })
-
+        console.log("done")
     });
 }

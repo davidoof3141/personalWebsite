@@ -2,24 +2,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <script>
-        let url = "{% static "/pdf_editor/resources/zoom.svg" %}";
-    </script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Ruluko&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static "base.css" %}">
     <link rel="stylesheet" href="{% static "/pdf_editor/pdf_editor.css" %}">
-    <script src="{% static "/resources/pdfjs/pdf.worker.js" %}">
-    </script>
+    <script src="{% static "/resources/pdfjs/pdf.worker.js" %}"></script>
     <script src="{% static "/resources/jquery-3.6.0.min.js" %}"></script>
     <script src="{% static "/resources/Sortable.min.js" %}"></script>
-    <script src="{% static "/pdf_editor/pdf_editor.js" %}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.12.313/pdf.min.js"></script>
+    <script type="module" src="{% static "/pdf_editor/pdf_editor.js" %}"></script>
+    <script src="{% static "/resources/pdfjs/pdf.js" %}"></script>
+    <script type="module" src="{% static "/utils/utils.js" %}"></script>
+
 </head>
 <body>
 <div class="inline_container">
-    <img id="back_arrow" src="{% static "/pdf_editor/resources/left.png" %}">
+    <a href="/"><span class="back_arrow">&larr;</span></a>
     <div class="document_page_view" style="display: none;">
         <div id="document_page_view_files">Files</div>
         <div id="document_page_view_pages">Pages</div>

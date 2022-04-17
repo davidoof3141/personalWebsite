@@ -50,7 +50,8 @@ body, html {
 }
 
 .canvas_page {
-    max-width: 70%;
+    max-height: 900px;
+    max-width: 900px;
     margin-left: auto;
     margin-right: auto;
 }

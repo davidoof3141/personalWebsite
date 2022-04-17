@@ -180,7 +180,7 @@ function load_pdf(url) {
             let newDiv = `<canvas id='${canvas_Id}' class="canvas_page"></canvas>`
             $('.pdf_content').append(newDiv)
             let canvas = $("#" + canvas_Id)[0]
-            await renderPage(pdf, i, canvas)
+            await renderPage(pdf, i, canvas, 5)
         }
     });
 }

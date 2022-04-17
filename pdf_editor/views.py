@@ -21,7 +21,6 @@ def home(request):
 def pdf_editor_home(request):
     if request.method == 'POST':
         upload = (request.FILES['file'])
-        print(type(upload))
         upload_name = upload.name
         for char in illegal_chars:
             upload_name = upload_name.replace(char, "_")
@@ -33,19 +32,24 @@ def pdf_editor_home(request):
 
 def submit(request):
     newPdf = request.POST.getlist("data[]")
+    rotations = request.POST.getlist("rotation[]")
+    rotations = list(map(int, rotations))
+    print(rotations)
     mode = request.POST.get("mode")
-    print("HALLO")
     documents = {}
     merged_pdf = Pdf.new()
     if mode == "files":
-        for doc in newPdf:
+        for idx, doc in enumerate(newPdf):
             doc_info = doc.rsplit("_", 1)
             doc_name = f"{doc_info[0]}.pdf"
             if not fss.exists(doc_name):
                 return JsonResponse({"url": "File does not exist anymore"})
-            merged_pdf.pages.extend(Pdf.open(fss.open(doc_name)).pages)
+            pdfFile = Pdf.open(fss.open(doc_name))
+            for page in pdfFile.pages:
+                page.Rotate = rotations[idx]
+            merged_pdf.pages.extend(pdfFile.pages)
     else:
-        for doc in newPdf:
+        for idx, doc in enumerate(newPdf):
             doc_info = doc.rsplit("_", 1)
             doc_name = f"{doc_info[0]}.pdf"
             doc_page = int(doc_info[1]) - 1
@@ -54,12 +58,14 @@ def submit(request):
             if doc_name not in documents.keys():
                 pdf = Pdf.open(fss.open(doc_name))
                 documents[doc_name] = pdf
-            merged_pdf.pages.append(documents.get(doc_name).pages[doc_page])
+            page = documents.get(doc_name).pages[doc_page]
+            page.Rotate = rotations[idx]
+            merged_pdf.pages.append(page)
+
     merged_pdf_name = fss.get_available_name('merged.pdf')
     merged_pdf.save(f"{fss.location}/{merged_pdf_name}")
     hash_code = str(uuid.uuid4())
     hashMap[hash_code] = merged_pdf_name
-    print(hash_code)
     return JsonResponse({"hash": hash_code})
 
 

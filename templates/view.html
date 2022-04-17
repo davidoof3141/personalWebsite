@@ -3,7 +3,7 @@
 <html>
 <head>
     <script src="{% static "/resources/jquery-3.6.0.min.js" %}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.12.313/pdf.min.js"></script>
+    <script src="{% static "/resources/pdfjs/pdf.js" %}"></script>
     <script src="{% static "/resources/pdfjs/pdf.worker.js" %}"></script>
     <link rel="stylesheet" href="{% static "/resources/jquery-ui.css" %}">
     <script src="{% static "/resources/jquery-ui.js" %}"></script>
@@ -33,7 +33,7 @@
         <img class="sidebar_icon print_icon" src="{% static "/pdf_editor/resources/print.svg" %}">
         <img class="sidebar_icon signature_icon" src="{% static "/pdf_editor/resources/signature.svg" %}">
         <a id="download_button" href="/media/{{ pdf }}" download>
-            <img class="sidebar_icon download_icon" src="{% static "/pdf_editor/resources/download.svg" %}"">
+            <img class="sidebar_icon download_icon" src="{% static "/pdf_editor/resources/download.svg" %}">
         </a>
     </div>
 
@@ -47,11 +47,12 @@
         <div class="signature_options_container signature_options_buttons">
             <div class="signature_button delete_button">&#10005;</div>
             <div class="signature_button clear_button"><img style="width: 15px; height: 15px;
-                filter: invert(52%) sepia(10%) saturate(16%) hue-rotate(348deg) brightness(94%) contrast(86%);" src="{% static "/pdf_editor/resources/clear.svg" %}"></div>
+                filter: invert(52%) sepia(10%) saturate(16%) hue-rotate(348deg) brightness(94%) contrast(86%);"
+                                                            src="{% static "/pdf_editor/resources/clear.svg" %}"></div>
             <div class="signature_button submit_button">&#10003;</div>
         </div>
     </div>
-    </div>
+</div>
 </div>
 
 </body>
