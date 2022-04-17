@@ -1,10 +1,18 @@
-import {getCookie, renderPage} from '/static/utils/utils.js'
+import {getCookie, renderPage} from '/static/utils/utils.js';
+
+let page_num = 0
+const csrftoken = getCookie('csrftoken');
 
 $(function () {
+    $.ajaxSetup({
+        headers: {
+            "X-CSRFToken": csrftoken,
+        }
+    });
 
     let x = 0;
     let y = 0;
-    const csrftoken = getCookie('csrftoken');
+
     const url = JSON.parse(document.getElementById('pdf').textContent);
     let canvas = document.getElementById('signature');
     let lineWidth = 2;
@@ -51,7 +59,6 @@ $(function () {
     }
 
     function draw(e) {
-        // mouse left button must be pressed
         if (e.buttons !== 1) return;
 
         ctx.beginPath(); // begin
@@ -66,11 +73,6 @@ $(function () {
     }
 
     function submitSignature(img, page_num, coords, url, csrftoken) {
-        $.ajaxSetup({
-            headers: {
-                "X-CSRFToken": csrftoken,
-            }
-        });
 
         let data = new FormData();
         data.append("image_data", img)
@@ -95,6 +97,30 @@ $(function () {
                 console.log(r)
             }
         });
+    }
+
+    $('.export_icon').click(function () {
+        $.ajax({
+            type: "POST",
+            url: "/pdf_view/export_text",
+            data: {"name": url},
+            success: function (s) {
+                downloadTxt(s.file)
+            },
+            error: function (r) {
+                console.log(r)
+            }
+        });
+    })
+
+    function downloadTxt(file) {
+        let link = document.createElement("a");
+
+        link.setAttribute('download', file);
+        link.href = "/media/" + file;
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
     }
 
     $('.submit_button').click(function (e) {
@@ -147,12 +173,16 @@ $(function () {
         clearCanvas()
     })
 
-    $('.font_size_input').change(function(){
+    $('.font_size_input').change(function () {
         lineWidth = $(this).val()
     })
 
-    $('.font_color_input').change(function(){
+    $('.font_color_input').change(function () {
         lineColor = $(this).val()
+    })
+
+    $('.home_icon').click(function () {
+        location.href = '/';
     })
 
     function unToggleSignature() {
@@ -169,12 +199,24 @@ $(function () {
         resize(signature_el.height(), signature_el.width())
     }
 
+    $('.page_counter_text').change(function () {
+        let page_focus = $(this).val()
+        if (0 < page_focus < page_num) {
+            $("#page_" + page_focus)[0].scrollIntoView()
+        }
+    })
+
 })
 
 
 function load_pdf(url) {
     const loadingTask = pdfjsLib.getDocument(`/media/${url}`);
+
     loadingTask.promise.then(async (pdf) => {
+
+        page_num = pdf.numPages
+        $(".page_num").html(pdf.numPages)
+
         for (let i = 1; i <= pdf.numPages; i++) {
             let canvas_Id = `page_${i}`
             let newDiv = `<canvas id='${canvas_Id}' class="canvas_page"></canvas>`

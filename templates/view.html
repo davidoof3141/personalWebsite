@@ -17,6 +17,11 @@
 <div class="container">
     <div class="pdf_container">
         <div class="pdf_toolbar">
+            <a href="/pdf_editor"><span class="back_arrow">&larr;</span></a>
+            <div class="page_counter_container">
+                <input type="text" class="page_counter_text" value="1">
+                 / <span class="page_num"></span>
+            </div>
         </div>
         <div class="pdf_content">
             <div class="canvas_container">
@@ -30,7 +35,8 @@
         </div>
     </div>
     <div class="pdf_sidebar">
-        <img class="sidebar_icon print_icon" src="{% static "/pdf_editor/resources/print.svg" %}">
+        <img class="sidebar_icon home_icon"  src="{% static "/pdf_editor/resources/home.svg" %}">
+        <img class="sidebar_icon export_icon"  src="{% static "/pdf_editor/resources/export.svg" %}">
         <img class="sidebar_icon signature_icon" src="{% static "/pdf_editor/resources/signature.svg" %}">
         <a id="download_button" href="/media/{{ pdf }}" download>
             <img class="sidebar_icon download_icon" src="{% static "/pdf_editor/resources/download.svg" %}">

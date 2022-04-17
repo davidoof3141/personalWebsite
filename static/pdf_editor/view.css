@@ -1,29 +1,49 @@
 body, html {
     margin: 0;
     height: 100%;
+    color: white;
 }
 
 /* ===== Scrollbar CSS ===== */
-  /* Firefox */
-  * {
+/* Firefox */
+* {
     scrollbar-width: auto;
     scrollbar-color: #454545 #ffffff;
-  }
+}
 
-  /* Chrome, Edge, and Safari */
-  *::-webkit-scrollbar {
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
     width: 12px;
-  }
+}
 
-  *::-webkit-scrollbar-track {
+*::-webkit-scrollbar-track {
     background: #ffffff;
-  }
+}
 
-  *::-webkit-scrollbar-thumb {
+*::-webkit-scrollbar-thumb {
     background-color: #454545;
     border-radius: 10px;
     border: 3px none #ffffff;
-  }
+}
+
+a{
+    border: 0;
+    padding: 0;
+
+}
+
+.page_counter_text{
+    width: 40px;
+    background-color: #2a2a2a;
+    text-align: center;
+    color: white;
+}
+
+.back_arrow {
+    color: white;
+    font-size: 30px;
+    margin-left: 10px;
+}
 
 .pdf_container {
     width: calc(100% - 70px);
@@ -32,10 +52,12 @@ body, html {
 }
 
 .pdf_toolbar {
+    display: flex;
     background-color: rgb(50, 54, 57);
     height: 50px;
     width: 100%;
     border-bottom: 2px solid rgb(32, 32, 32);
+    align-items: center;
 }
 
 .pdf_content {
@@ -93,8 +115,17 @@ body, html {
     filter: invert(65%) sepia(19%) saturate(6206%) hue-rotate(123deg) brightness(104%) contrast(96%);
 }
 
-.print_icon {
+.home_icon {
     filter: invert(31%) sepia(95%) saturate(4362%) hue-rotate(3deg) brightness(103%) contrast(98%);
+}
+
+.export_icon {
+    filter: invert(66%) sepia(73%) saturate(386%) hue-rotate(73deg) brightness(97%) contrast(96%);
+}
+
+.page_counter_container{
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #signature {

@@ -34,7 +34,6 @@ def submit(request):
     newPdf = request.POST.getlist("data[]")
     rotations = request.POST.getlist("rotation[]")
     rotations = list(map(int, rotations))
-    print(rotations)
     mode = request.POST.get("mode")
     documents = {}
     merged_pdf = Pdf.new()
@@ -85,10 +84,8 @@ def pdf_view_submit(request):
         img = fss.open("example.png", "wb")
         img.write(base64.decodebytes(img_data))
         img.close()
-        print(type(img.file))
 
         # insert image
-        print(type(base64.decodebytes(img_data)))
         doc = fitz.open(fss.open(file))
         page = doc[pageNum]
         page_height = page.rect.height
@@ -103,3 +100,14 @@ def pdf_view_submit(request):
         img.close()
         return JsonResponse({"status": "successful"})
     return render(request, 'view.html')
+
+
+def export_text(request):
+    name = request.POST.get("name")
+
+    doc = fitz.open(fss.open(name))
+    f = open(f"{fss.location}/{name.split('.')[0]}.txt", "w", encoding="utf-8")
+    for page in doc:
+        f.write(page.get_text("text"))
+    f.close()
+    return JsonResponse({"file": f"{name.split('.')[0]}.txt"})
